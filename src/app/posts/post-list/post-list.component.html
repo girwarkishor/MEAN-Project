@@ -14,5 +14,5 @@
         </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>
-<mat-paginator [length] = "totalPosts" [pageSize] = "postsPerPage" [pageSizeOptions] = "pageSizeOptions" (page) = "onChangedPage($event)"></mat-paginator>
+<mat-paginator [length] = "totalPosts" [pageSize] = "postsPerPage" [pageSizeOptions] = "pageSizeOptions" (page) = "onChangedPage($event)" *ngIf = "posts.length > 0"></mat-paginator>
 <p class="mat-body-1 info-text" *ngIf = "posts.length <=0 && !isLoading">No posts found!</p>
