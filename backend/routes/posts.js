@@ -92,6 +92,7 @@ router.get("", (req, res, next)=>{
       .limit(pageSize);
   }
     postQuery.find().then(documents => {
+      fetchedPosts = documents;
       return Post.count(); 
     })
     .then(count => {
