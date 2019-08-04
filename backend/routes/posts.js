@@ -81,20 +81,16 @@ router.put(
   );
 
 router.get("", (req, res, next)=>{
-    // const posts=[
-    //     {
-    //         id: "ljasdflkj123",
-    //         title: "First server-side post",
-    //         content: "This is coming from the server"
-    //     },
-    //     {
-    //         id: "oiuweqour123",
-    //         title: "Second server-side post",
-    //         content: "This is coming from the server!"
-    //     }
-    // ]; dummy content
-
-    Post.find().then(documents => {
+  //console.log(req.query);
+  const pageSize = +req.query.pagesize;
+  const currentPage = +req.query.page;
+  const postQuery = Post.find();
+  if(pageSize && currentPage){
+    postQuery
+      .skip(pageSize * (currentPage - 1))
+      .limit(pageSize);
+  }
+    postQuery.find().then(documents => {
         res.status(200).json({
             message: "Posts fetched successfully!",
             posts: documents
