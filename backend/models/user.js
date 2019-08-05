@@ -1,5 +1,5 @@
 const mongoose =  require('mongoose');
-const uniqueValidator = require("mongoose-unique-validator");
+const uniqueValidator = require("mongoose-unique-validator"); //install npm mongoose-unique-validator package
 
 //its just a blue print of data
 const userSchema = mongoose.Schema({
