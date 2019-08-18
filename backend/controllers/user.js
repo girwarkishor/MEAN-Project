@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt"); //install npm bcrypt for password hash
+const bcrypt = require("bcryptjs"); //install npm bcrypt for password hash
 const jwt = require("jsonwebtoken"); //install npm jsonwebtoken
 
 const User = require("../models/user");
